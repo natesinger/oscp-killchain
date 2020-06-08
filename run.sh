@@ -24,11 +24,5 @@ tmux send-keys -t "monitor:0.5" C-z "cd $d_http" Enter "sudo python -m SimpleHtt
 ########################## BUILD TMUX MAIN WORKSPACE ###########################
 gnome-terminal --title 'WORKSPACE' --maximize --geometry 1x1+0+0 -- tmux new -s 'main'
 
-####################### START LOGGER FOR MAIN WORKSPACE ########################
-l_start=0
-l_end=$(wc -l $f_log)
-
-tmux capture-pane -t "main:0" -S $l_start -E $l_end >> $f_log
-
 ############################## ITS TIME TO PARTY ###############################
-bash run.sh
+tmux send-keys -t "main:0" C-z "run.sh" Enter
