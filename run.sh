@@ -26,4 +26,4 @@ tmux send-keys -t "monitor:0.5" C-z "cd $d_http" Enter "sudo python -m SimpleHtt
 gnome-terminal --title 'WORKSPACE' --maximize --geometry 1x1+0+0 -- tmux new -s 'main'
 
 ############################## ITS TIME TO PARTY ###############################
-tmux send-keys -t "main:0" C-z "run.sh" Enter
+tmux send-keys -t "main:0" C-z "./kill-chain.sh" Enter
