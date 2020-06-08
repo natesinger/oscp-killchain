@@ -1,4 +1,8 @@
 #!/usr/bin/bash
+############################ ENSURE SUPERUSER PRIVS ############################
+if [ "$EUID" -ne 0 ]; then echo -e "\e[1m\e[93m[!]\e[0m Please run as root"; exit; fi
+
+############################# DEPENDENCY CREATION ##############################
 cwd=$(pwd)
 f_log="$cwd/.logfile"; touch $f_log
 d_http="$cwd/http_serve"; mkdir $d_http
@@ -6,9 +10,6 @@ d_http="$cwd/http_serve"; mkdir $d_http
                   #############################################
 ############################### ENVIRONMENT SETUP ##############################
                   #############################################
-
-############################ ENSURE SUPERUSER PRIVS ############################
-if [ "$EUID" -ne 0 ]; then echo -e "\e[1m\e[93m[!]\e[0m Please run as root"; exit; fi
 
 ######################### BUILD TMUX MONITOR DASHBOARD #########################
 gnome-terminal --title 'MONITOR' --maximize --geometry 1x1+3840+0 -- tmux new -s 'monitor'
