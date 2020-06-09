@@ -31,4 +31,4 @@ tmux send-keys -t "monitor:0.5" C-z "top" Enter
 tmux send-keys -t "monitor:0.6" C-z "cd $d_http" Enter "sudo python -m SimpleHTTPServer 80" Enter
 
 ############################## ITS TIME TO PARTY ###############################
-tmux send-keys -t "main:0" C-z "./kill-chain.sh" Enter
+tmux send-keys -t "main:0" C-z "./scripts/kill-chain.sh" Enter
