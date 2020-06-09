@@ -2,15 +2,15 @@ cwd=$(pwd)
 f_log=$cwd'/.logfile';touch $f_log
 d_http=$cwd/
 
-####################### START LOGGER FOR MAIN WORKSPACE ########################
-l_start=0
-l_end=$(wc -l $f_log)
-
-tmux capture-pane -t "main:0" -S $l_start -E $l_end >> $f_log
+#teal     echo -e "\u001b[32;1m[!]\e[0m test"
+#red     echo -e "\u001b[31;1m[!]\e[0m test"
+#green     echo -e "\u001b[32;1m[!]\e[0m test"
+#blue      echo -e "\u001b[34;1m[!]\e[0m test"
+#yellow     echo -e "\u001b[33;1m[!]\e[0m test"
+#white     echo -e "\u001b[28;1m[!]\e[0m test"
 
 ############################# INITIAL BANNER/NOTES #############################
-echo -e "
-\e[1m\e[93mLets get this fuckin' show on the road, before we start, remember:\e[0m
+echo -e "\e[1m\e[93mLets get this fuckin' show on the road, before we start, remember:\e[0m
       - It's better to take 30 seconds longer and not miss something obvious
           **Espically for the BOF**
       - Good chance theres a simple RCE for something on the box, \e[101mDON'T RABBIT-HOLE\e[0m
@@ -27,20 +27,27 @@ echo -e "
       5. Enumerate for privesce
       6. Determine our path forward based on privesce
       7. Ensure approperiate note taking has occured, and all info is avail for reporting
-
-\e[1m\e[93mWorkspace Details:\e[0m
 "
 
-########################### ENSURE VPN ESTABLISHMENT ###########################
-#ENSURE A VPN CONNECTION IS ESTABLISHED
+                  #############################################
+############################### PRE-SCRIPT CHECKS ##############################
+                  #############################################
 
-########################## ENSURE INTERNET CONNECTION ##########################
-#ENSURE A VPN CONNECTION IS ESTABLISHED
+echo -e "\e[1m\e[93mPre-script Monitor Checks:\e[0m"
+read -n 1 -s -r -p "      1. Is the VPN connected?: [Press any key to Continue]"; echo ""
+read -n 1 -s -r -p "      2. Do we have an internet connection?: [Press any key to Continue]"; echo ""
+read -n 1 -s -r -p "      3. Are we pinging both internal/external?: [Press any key to Continue]"; echo -e "\n"
+
+                  #############################################
+################################### GAMETIME ###################################
+                  #############################################
+
+echo -e "\e[1m\e[93mGAMETIME:\e[0m"
+read -n 1 -s -r -p "[Press any key to Start]"; echo -e "\e[1A\e[K                        "
 
 ########################## BUILD DIRECTORY STRUCTURE ###########################
-#<placeholder>
-
-
+mkdir -p discovery port-enum os-enum vuln service-enum .resources
+echo -e "\u001b[32;1m[+]\e[0m Built directory structure"
 
 ########################### DOWNLOAD/UNZIP RESOURCES ###########################
 #Download name files
@@ -52,7 +59,9 @@ echo -e "
 ############################ BASIC PAYLOAD CREATION ############################
 #start http server to host resources, do this in another tmux window
 
-
+                  #############################################
+############################### ALIVES DISCOVERY ###############################
+                  #############################################
 
                   #############################################
 ############################# ACTIVE RECONNAISSANCE ############################
