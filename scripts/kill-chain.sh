@@ -47,16 +47,16 @@ read -n 1 -s -r -p "[Press any key to Start]"; echo -e "\e[1A\e[K               
 
 ########################## BUILD DIRECTORY STRUCTURE ###########################
 echo -e "\u001b[34;1m[!]\e[0m Building working directories"; sleep 0.1
-mkdir -p discovery; sleep 0.1
-echo -e "\u001b[28;1m[-]\e[0m Making local directory: discovery/"; sleep 0.1
-mkdir -p port-enum; sleep 0.1
-echo -e "\u001b[28;1m[-]\e[0m Making local directory: port-enum/"; sleep 0.1
-mkdir -p os-enum; sleep 0.1
-echo -e "\u001b[28;1m[-]\e[0m Making local directory: os-enum/"; sleep 0.1
-mkdir -p vuln; sleep 0.1
-echo -e "\u001b[28;1m[-]\e[0m Making local directory: vuln/"; sleep 0.1
-mkdir -p service-enum; sleep 0.1
-echo -e "\u001b[28;1m[-]\e[0m Making local directory: service-enum/"; sleep 0.1
+mkdir -p enumeration/discovery; sleep 0.1
+echo -e "\u001b[28;1m[-]\e[0m Making local directory: enumeration/discovery/"; sleep 0.1
+mkdir -p enumeration/port-enum; sleep 0.1
+echo -e "\u001b[28;1m[-]\e[0m Making local directory: enumeration/port-enum/"; sleep 0.1
+mkdir -p enumeration/os-enum; sleep 0.1
+echo -e "\u001b[28;1m[-]\e[0m Making local directory: enumeration/os-enum/"; sleep 0.1
+mkdir -p enumeration/vuln; sleep 0.1
+echo -e "\u001b[28;1m[-]\e[0m Making local directory: enumeration/vuln/"; sleep 0.1
+mkdir -p enumeration/service-enum; sleep 0.1
+echo -e "\u001b[28;1m[-]\e[0m Making local directory: enumeration/service-enum/"; sleep 0.1
 mkdir -p .resource; sleep 0.1
 echo -e "\u001b[28;1m[-]\e[0m Making local directory: .resource/"; sleep 0.1
 echo -e "\u001b[32;1m[+]\e[0m Built local directories\n"; sleep 0.1
@@ -78,11 +78,11 @@ echo -e "\u001b[34;1m[!]\e[0m Building payloads"; sleep 0.1
 echo -e "\u001b[28;1m[-]\e[0m <PLACEHOLDER> building x shell for y"; sleep 0.1
 echo -e "\u001b[32;1m[+]\e[0m Payloads built\n"; sleep 0.1
 
-bash alives.sh
-bash ports.sh
-bash os.sh
-bash services.sh
-bash vuln.sh
+bash scripts/alives.sh $target_cidr $target_nostrike
+bash scripts/ports.sh
+bash scripts/os.sh
+bash scripts/services.sh
+bash scripts/vuln.sh
 
 #red     echo -e "\u001b[31;1m[!]\e[0m test"
 #green     echo -e "\u001b[32;1m[!]\e[0m test"
