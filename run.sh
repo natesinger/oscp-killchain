@@ -4,7 +4,7 @@ if [ "$EUID" -ne 0 ]; then echo -e "\e[1m\e[93m[!]\e[0m Please run as root"; exi
 
 ############################# DEPENDENCY CREATION ##############################
 cwd=$(pwd)
-f_plog="$cwd/log.pcap"; touch $f_plog
+f_plog="$cwd/workspace.pcap"; touch $f_plog
 d_http="$cwd/http_serve"; mkdir $d_http
 
                   #############################################
@@ -31,4 +31,4 @@ tmux send-keys -t "monitor:0.5" C-z "top" Enter
 tmux send-keys -t "monitor:0.6" C-z "cd $d_http" Enter "sudo python -m SimpleHTTPServer 80" Enter
 
 ############################## ITS TIME TO PARTY ###############################
-tmux send-keys -t "main:0" C-z "./scripts/kill-chain.sh | tee script.log" Enter
+tmux send-keys -t "main:0" C-z "./scripts/kill-chain.sh | tee killchain.log" Enter
