@@ -5,7 +5,7 @@ if [ "$EUID" -ne 0 ]; then echo -e "\e[1m\e[93m[!]\e[0m Please run as root"; exi
 ############################# DEPENDENCY CREATION ##############################
 cwd=$(pwd)
 f_plog="$cwd/workspace.pcap"; touch $f_plog
-d_http="$cwd/http_serve"; mkdir $d_http
+d_http="$cwd/http_serve"; mkdir -p $d_http
 
                   #############################################
 ############################### ENVIRONMENT SETUP ##############################
