@@ -27,4 +27,4 @@ cat enumeration/discovery/5.alives.nmap.icmp.host enumeration/discovery/7.alives
 echo -e "\u001b[28;1m[-]\e[0m Merged findings into one hosts manifest at enumeration/discovery/7.alives.nmap.basicports.host"; sleep 0.1
 
 echo -e "\u001b[32;1m[+]\e[0m Database of alives established\n"; sleep 0.1
-echo -e "\u001b[35;1m[i]\e[0m Discovered $(wc -l enumeration/discovery/8.alives.host | cut -d' ' -f1) alives within the range $target_cidr\n"; sleep 0.1
+echo -e "\u001b[35;1m[i]\e[0m Discovered $(wc -l enumeration/discovery/8.alives.host | cut -d' ' -f1) alives within the target subnet\n"; sleep 0.1

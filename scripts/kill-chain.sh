@@ -25,7 +25,7 @@ echo -e "\e[1m\e[93mLets get this fuckin' show on the road, before we start, rem
 ############################### PRE-SCRIPT CHECKS ##############################
                   #############################################
 
-echo -e "\e[1m\e[93mPre-script Monitor Checks:\e[0m"
+sleep 1; echo -e "\e[1m\e[93mPre-script Monitor Checks:\e[0m" #this sleep is a bug preventer
 read -n 1 -s -r -p "      1. [Pane 0] Is the VPN connected?: [Press any key to Continue]"; echo ""
 read -n 1 -s -r -p "      2. [Pane 1] Ping external connection?: [Press any key to Continue]"; echo ""
 read -n 1 -s -r -p "      3. [Pane 2] Ping known lab connection?: [Press any key to Continue]"; echo -e ""
@@ -83,6 +83,14 @@ bash scripts/ports.sh
 bash scripts/os.sh
 bash scripts/services.sh
 bash scripts/vuln.sh
+
+echo "update the following in cherry tree:
+- Alives based on enumeration/discovery/8.alives.host
+- TCP ports for each alive based on enumeration/port-enum/1.tALL.ports
+- UDP ports based on enumeration/port-enum/1.uALL.ports
+- OS fingerprint based on enumeration/os-enum/1.basic-nmap.os
+- OS fingerprint based on NSE SMB script, enumeration/os-enum/2.smb-enum.nmap
+"
 
 #red     echo -e "\u001b[31;1m[!]\e[0m test"
 #green     echo -e "\u001b[32;1m[!]\e[0m test"
